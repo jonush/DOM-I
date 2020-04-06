@@ -38,5 +38,113 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
+const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// ------- WORK BEGINS HERE -------
+// updating the links in the nav bar
+const nav = document.querySelector("nav");
+const links = nav.getElementsByTagName("a")
+function addLinks() {
+  const items = Object.values(siteContent.nav);
+
+  for(let i = 0; i <links.length; i++) {
+    links[i].textContent = items[i];
+    links[i].style.color = "green";
+  }
+}
+
+addLinks();
+
+const team = document.createElement("a");
+team.textContent = "Team";
+team.style.color = "green";
+nav.appendChild(team);
+
+const mission = document.createElement("a");
+mission.textContent = "Mission";
+mission.style.color = "green";
+nav.prepend(mission);
+
+// adding the title in the header
+const header = document.querySelector(".cta");
+const title = header.querySelector("h1"); 
+title.textContent = Object.values(siteContent.cta.h1).join('');
+
+// adding button text
+const buttonText = header.querySelector("button");
+buttonText.textContent = Object.values(siteContent.cta.button).join('');
+
+// adding header image
+const headerImg = header.querySelector("#cta-img");
+headerImg.setAttribute("src", siteContent["cta"]["img-src"]);
+
+// adding top content
+const topContent = document.querySelector(".top-content");
+const featuresTitle = topContent.getElementsByTagName("h4")[0];
+featuresTitle.textContent = siteContent["main-content"]["features-h4"];
+const featuresText = topContent.getElementsByTagName("p")[0];
+featuresText.textContent = siteContent["main-content"]["features-content"];
+
+const aboutTitle = topContent.getElementsByTagName("h4")[1];
+aboutTitle.textContent = siteContent["main-content"]["about-h4"];
+const aboutText = topContent.getElementsByTagName("p")[1];
+aboutText.textContent = siteContent["main-content"]["about-content"];
+
+// adding content img
+let mainImg = document.querySelector("#middle-img");
+mainImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+// adding bottom content
+const bottomContent = document.querySelector(".bottom-content");
+const servicesTitle = bottomContent.getElementsByTagName("h4")[0];
+servicesTitle.textContent = siteContent["main-content"]["services-h4"];
+const servicesText = bottomContent.getElementsByTagName("p")[0];
+servicesText.textContent = siteContent["main-content"]["services-content"];
+
+const productTitle = bottomContent.getElementsByTagName("h4")[1];
+productTitle.textContent = siteContent["main-content"]["product-h4"];
+const productText = bottomContent.getElementsByTagName("p")[1];
+productText.textContent = siteContent["main-content"]["product-content"];
+
+// adding contact content
+const contact = document.querySelector(".contact");
+
+const contactTitle = contact.getElementsByTagName("h4")[0];
+contactTitle.textContent = siteContent["contact"]["contact-h4"];
+
+const address = contact.getElementsByTagName("p")[0];
+address.textContent = siteContent.contact.address;
+
+const phone = contact.getElementsByTagName("p")[1];
+phone.textContent = siteContent.contact.phone;
+
+const email = contact.getElementsByTagName("p")[2];
+email.textContent = siteContent.contact.email;
+
+// adding footer content
+const footer = document.querySelector("footer");
+footer.firstChild.textContent = siteContent.footer.copyright;
+
+// STRETCH GOALS
+// Changing h4 color styles
+function colored() {
+  let headings = document.querySelectorAll("h4");
+  for (let i = 0; i < headings.length; i++) {
+    headings[i].style.color = "green";
+  }
+}
+
+colored();
+
+// updating button
+let button = document.querySelector("button");
+button.addEventListener("click", function() {
+  const currentColor = document.body.style.backgroundColor;
+
+  if(currentColor === "white") {
+    document.body.style.backgroundColor = "orange";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
+});
