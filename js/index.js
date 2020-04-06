@@ -69,7 +69,7 @@ nav.prepend(mission);
 // adding the title in the header
 const header = document.querySelector(".cta");
 const title = header.querySelector("h1"); 
-title.textContent = Object.values(siteContent.cta.h1).join('');
+title.innerHTML = "DOM <br /> IS <br /> AWESOME <br />"
 
 // adding button text
 const buttonText = header.querySelector("button");
@@ -107,6 +107,11 @@ productTitle.textContent = siteContent["main-content"]["product-h4"];
 const productText = bottomContent.getElementsByTagName("p")[1];
 productText.textContent = siteContent["main-content"]["product-content"];
 
+const visionTitle = bottomContent.getElementsByTagName("h4")[2];
+visionTitle.textContent = siteContent["main-content"]["vision-h4"];
+const visionText = bottomContent.getElementsByTagName("p")[2];
+visionText.textContent = siteContent["main-content"]["vision-content"];
+
 // adding contact content
 const contact = document.querySelector(".contact");
 
@@ -114,7 +119,7 @@ const contactTitle = contact.getElementsByTagName("h4")[0];
 contactTitle.textContent = siteContent["contact"]["contact-h4"];
 
 const address = contact.getElementsByTagName("p")[0];
-address.textContent = siteContent.contact.address;
+address.innerHTML = "123 Way 456 <br />Street Somewhere, USA";
 
 const phone = contact.getElementsByTagName("p")[1];
 phone.textContent = siteContent.contact.phone;
